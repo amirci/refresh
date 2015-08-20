@@ -49,6 +49,7 @@ group :development, :test do
   
   gem 'guard-rails'
   gem 'jasmine-rails'
+  gem 'selenium-webdriver'
 end
 
 

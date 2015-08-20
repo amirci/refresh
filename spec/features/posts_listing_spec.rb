@@ -1,6 +1,6 @@
-require 'features/features_helper'
+require 'rails_helper'
 
-feature "Lists all the posts" do
+feature "Lists all the posts", js: true do
   
   before :each do
     
