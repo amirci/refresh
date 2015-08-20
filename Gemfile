@@ -48,6 +48,7 @@ group :development, :test do
   gem 'capybara'
   
   gem 'guard-rails'
+  gem 'jasmine-rails'
 end
 
 
