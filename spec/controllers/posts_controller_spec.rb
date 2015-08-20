@@ -20,17 +20,6 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Post. As you add validations to Post, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
-
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
-
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # PostsController. Be sure to keep this updated too.
@@ -38,7 +27,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe "GET #index" do
     it "assigns all posts as @posts" do
-      post = Post.create! valid_attributes
+      post = create :post
       get :index, {}, valid_session
       expect(assigns(:posts)).to eq([post])
     end
@@ -46,7 +35,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested post as @post" do
-      post = Post.create! valid_attributes
+      post = create :post
       get :show, {:id => post.to_param}, valid_session
       expect(assigns(:post)).to eq(post)
     end
@@ -61,13 +50,17 @@ RSpec.describe PostsController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested post as @post" do
-      post = Post.create! valid_attributes
+      post = create :post
       get :edit, {:id => post.to_param}, valid_session
       expect(assigns(:post)).to eq(post)
     end
   end
 
+  let(:valid_attributes)   { {title: 'John'} }
+  let(:invalid_attributes) { {title: nil   } }
+  
   describe "POST #create" do
+    
     context "with valid params" do
       it "creates a new Post" do
         expect {
@@ -103,14 +96,14 @@ RSpec.describe PostsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {title: 'Crazy'}
       }
 
       it "updates the requested post" do
         post = Post.create! valid_attributes
         put :update, {:id => post.to_param, :post => new_attributes}, valid_session
         post.reload
-        skip("Add assertions for updated state")
+        expect(post.title).to eq 'Crazy'
       end
 
       it "assigns the requested post as @post" do
