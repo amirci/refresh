@@ -48,8 +48,11 @@ group :development, :test do
   gem 'capybara'
   
   gem 'guard-rails'
+  gem 'guard-rspec'
   gem 'jasmine-rails'
   gem 'selenium-webdriver'
+  
+  gem 'shoulda-matchers'
 end
 
 

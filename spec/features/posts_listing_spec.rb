@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Lists all the posts", js: true do
+feature "Lists all the posts" do
   
   before :each do
     
@@ -9,6 +9,10 @@ feature "Lists all the posts", js: true do
   context 'When some posts exists in the database' do
     it "lists all the posts" do
       visit '/posts'
+      
+      posts = all('.post')
+      
+      expect(posts).to_not be_empty
     end
   end
   
