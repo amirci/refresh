@@ -1,8 +1,13 @@
 require 'spec_helper'
+
+require 'rspec/rails'
+
 require 'capybara/rspec'
-require 'capybara-webkit'
-require 'capybara-screenshot/rspec'
-require 'timespan'
+require 'capybara/rails'
+
+# require 'capybara-webkit'
+# require 'capybara-screenshot/rspec'
+# require 'timespan'
 
 Dir[Rails.root.join("spec/features/support/**/*.rb")].sort.each { |f| require f } 
 
