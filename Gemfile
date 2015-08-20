@@ -53,6 +53,9 @@ group :development, :test do
   gem 'selenium-webdriver'
   
   gem 'shoulda-matchers'
+  
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 
